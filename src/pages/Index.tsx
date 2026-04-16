@@ -3,6 +3,7 @@ import { Shield, Check, Star, Gift, ChevronDown, Heart, Sparkles, Award } from "
 import CTAButton from "@/components/CTAButton";
 import CountdownTimer from "@/components/CountdownTimer";
 import SocialProofPopup from "@/components/SocialProofPopup";
+import SocialProofSection from "@/components/SocialProofSection";
 
 import heroImg from "@/assets/hero-creator.webp";
 import deseoImg from "@/assets/deseo-creator.webp";
@@ -13,7 +14,10 @@ import galeria3 from "@/assets/galeria-3.webp";
 import galeria4 from "@/assets/galeria-4.webp";
 import galeria5 from "@/assets/galeria-5.webp";
 import galeria6 from "@/assets/galeria-6.webp";
-import bonosImg from "@/assets/bonos-bolso.webp";
+import galeriaNew1 from "@/assets/galeria-new-1.webp";
+import galeriaNew2 from "@/assets/galeria-new-2.png";
+import galeriaNew3 from "@/assets/galeria-new-3.webp";
+import bonosImg from "@/assets/bonos-modelo.webp";
 import creatorImg from "@/assets/creator-isabella.jpg";
 
 const fadeUp = {
@@ -154,6 +158,9 @@ const galeria = [
   { img: galeria1, copy: "Bolso elegante en tonos púrpura con acabados dorados, perfecto para un look sofisticado." },
   { img: galeria2, copy: "Diseño turquesa con detalles en cristal, moderno y versátil para cualquier ocasión." },
   { img: galeria3, copy: "Bolso transparente de cuentas cristalinas, un diseño delicado que parece de boutique." },
+  { img: galeriaNew1, copy: "Bolso de cristal con detalles turquesa y cadena dorada, elegancia artesanal en cada detalle." },
+  { img: galeriaNew2, copy: "Diseño tipo red con cuentas negras y rosa, un bolso único que combina estilo y creatividad." },
+  { img: galeriaNew3, copy: "Clutch rojo vibrante con cierre dorado, una pieza llamativa perfecta para ocasiones especiales." },
   { img: galeria4, copy: "Bolso multicolor vibrante con patrón de flores, una pieza única que enamora a primera vista." },
   { img: galeria5, copy: "Elegante combinación de negro y cristal, perfecto para eventos y ocasiones especiales." },
   { img: galeria6, copy: "Bolso negro con asa de cristal y correa, sofisticado y listo para vender desde el primer día." },
@@ -213,7 +220,7 @@ const Bonos = () => (
         </motion.ul>
 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-          <img src={bonosImg} alt="Bolso de cuentas azul con corazones" loading="lazy" width={800} height={800} className="rounded-2xl shadow-lg w-full" />
+          <img src={bonosImg} alt="Modelo con bolso de cuentas negro" loading="lazy" width={800} height={1200} className="rounded-2xl shadow-lg w-full max-w-sm mx-auto" />
         </motion.div>
       </div>
     </div>
@@ -265,9 +272,11 @@ const Creadora = () => (
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex-shrink-0">
           <img src={creatorImg} alt="Isabella Toscano, creadora del curso" loading="lazy" width={800} height={800} className="rounded-2xl w-64 h-64 object-cover shadow-lg" />
         </motion.div>
-        <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-lg text-muted-foreground font-body leading-relaxed">
-          Tengo 5 años creando bolsos con cuentas y he reunido todo en un método simple para que tú también puedas lograrlo. He enseñado a cientos de mujeres a crear bolsos hermosos y a convertir esta habilidad en una fuente de ingresos.
-        </motion.p>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-muted-foreground font-body leading-relaxed space-y-4">
+          <p>Soy Isabella Toscano, tengo 22 años y desde hace 5 años me dedico a crear bolsos con cuentas. Durante este tiempo, esta pasión se ha convertido en una parte muy importante de mi vida, permitiéndome aprender, perfeccionar técnicas y desarrollar diseños llenos de detalle, estilo y dedicación.</p>
+          <p>Hoy quiero compartir contigo todo lo que he aprendido de una manera sencilla, cercana y práctica, para que tú también puedas aprender a crear bolsos hermosos, incluso si estás empezando desde cero. Creé este curso pensando en mujeres que desean desarrollar una nueva habilidad, disfrutar del proceso creativo y sentirse capaces de lograrlo con sus propias manos.</p>
+          <p>Mi mayor propósito es acompañarte paso a paso, transmitirte confianza y demostrarte que, con la guía correcta, tú también puedes crear piezas únicas y especiales.</p>
+        </motion.div>
       </div>
     </div>
   </section>
@@ -285,7 +294,6 @@ const Oferta = () => (
         initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
         className="card-elegant max-w-md mx-auto border-2 border-gold/40 relative overflow-hidden"
       >
-        {/* Badge */}
         <div className="absolute top-0 right-0 bg-rosa-dark text-background text-xs font-bold px-4 py-1.5 rounded-bl-xl font-body uppercase tracking-wider">
           50% OFF
         </div>
@@ -410,6 +418,7 @@ const Index = () => (
     <Mecanismo />
     <Producto />
     <PruebaVisual />
+    <SocialProofSection />
     <Bonos />
     <Beneficios />
     <Creadora />
