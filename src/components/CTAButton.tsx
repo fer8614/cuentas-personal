@@ -1,4 +1,4 @@
-import { Shield, Lock } from "lucide-react";
+import { Lock } from "lucide-react";
 
 interface CTAButtonProps {
   text?: string;
@@ -10,7 +10,7 @@ const CTAButton = ({
   microcopy = "Acceso inmediato + pago seguro"
 }: CTAButtonProps) => (
   <div className="flex flex-col items-center w-full">
-    <a href="#oferta" className="cta-button">
+    <a href="https://go.hotmart.com/G105098149D?ap=9ede" target="_blank" rel="noopener noreferrer" className="cta-button">
       {text}
     </a>
     <p className="microcopy">
