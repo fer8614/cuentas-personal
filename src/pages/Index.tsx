@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Check, Star, Gift, ChevronDown, Heart, Sparkles, Award } from "lucide-react";
+import { Shield, Check, Star, Gift, ChevronDown, Heart, Sparkles, Award, Zap, Crown } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 import CountdownTimer from "@/components/CountdownTimer";
 import SocialProofPopup from "@/components/SocialProofPopup";
@@ -18,7 +18,9 @@ import galeriaNew1 from "@/assets/galeria-new-1.webp";
 import galeriaNew2 from "@/assets/galeria-new-2.png";
 import galeriaNew3 from "@/assets/galeria-new-3.webp";
 import bonosImg from "@/assets/bonos-modelo.webp";
-import creatorImg from "@/assets/creator-isabella.jpg";
+import beneficiosImg from "@/assets/beneficios-modelo.webp";
+import creatorImg from "@/assets/creator-isabella.webp";
+import ctaFinalImg from "@/assets/cta-final-modelo.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -254,7 +256,7 @@ const Beneficios = () => (
           </div>
         </div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="md:w-1/2 flex-shrink-0">
-          <img src={galeria1} alt="Bolso de cuentas púrpura" loading="lazy" width={800} height={800} className="rounded-2xl shadow-lg w-full max-w-sm mx-auto" />
+          <img src={beneficiosImg} alt="Modelo con bolso de cuentas elegante" loading="lazy" width={800} height={800} className="rounded-2xl shadow-lg w-full max-w-sm mx-auto" />
         </motion.div>
       </div>
     </div>
@@ -284,50 +286,98 @@ const Creadora = () => (
 
 /* ─── 10. OFERTA ─── */
 const Oferta = () => (
-  <section id="oferta" className="section-padding bg-gradient-to-br from-rosa/10 via-background to-gold/10">
-    <div className="container-narrow text-center">
+  <section id="oferta" className="section-padding bg-gradient-to-br from-rosa/20 via-background to-gold/20 relative overflow-hidden">
+    {/* Decorative elements */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-10 left-10 w-32 h-32 bg-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-10 w-40 h-40 bg-rosa/15 rounded-full blur-3xl" />
+    </div>
+
+    <div className="container-narrow text-center relative z-10">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex items-center justify-center gap-2 mb-3">
+        <Crown className="w-6 h-6 text-gold" />
+        <span className="text-sm uppercase tracking-widest text-gold font-body font-semibold">Oferta por tiempo limitado</span>
+        <Crown className="w-6 h-6 text-gold" />
+      </motion.div>
+
       <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="section-headline">
         🎉 Empieza hoy con un precio especial
       </motion.h2>
 
       <motion.div
         initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-        className="card-elegant max-w-md mx-auto border-2 border-gold/40 relative overflow-hidden"
+        className="max-w-md mx-auto relative"
       >
-        <div className="absolute top-0 right-0 bg-rosa-dark text-background text-xs font-bold px-4 py-1.5 rounded-bl-xl font-body uppercase tracking-wider">
-          50% OFF
-        </div>
+        {/* Glowing border effect */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-gold via-rosa-dark to-gold rounded-3xl blur-sm opacity-60 animate-pulse" />
 
-        <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4 font-body mt-4">Acceso completo al curso + todos los bonos</p>
+        <div className="relative bg-background rounded-3xl p-8 shadow-2xl border border-gold/30">
+          {/* Badge */}
+          <motion.div
+            className="absolute -top-4 left-1/2 -translate-x-1/2"
+            animate={{ y: [0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          >
+            <span className="bg-rosa-dark text-background text-sm font-bold px-6 py-2 rounded-full font-body uppercase tracking-wider shadow-lg flex items-center gap-1">
+              <Zap className="w-4 h-4" /> 50% OFF <Zap className="w-4 h-4" />
+            </span>
+          </motion.div>
 
-        <div className="flex items-center justify-center gap-4 mb-2">
-          <span className="text-2xl text-muted-foreground line-through font-body">$59.99 USD</span>
-        </div>
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-6 font-body mt-4">Acceso completo al curso + todos los bonos</p>
 
-        <motion.p
-          className="text-6xl font-bold text-gold font-heading mb-2"
-          initial={{ scale: 0.5, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.3 }}
-        >
-          $29.99 USD
-        </motion.p>
+          {/* What's included mini-list */}
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {["+23 módulos", "7 bonos", "Acceso de por vida"].map((t) => (
+              <span key={t} className="bg-verde/20 text-verde-dark text-xs font-semibold px-3 py-1 rounded-full font-body">
+                ✓ {t}
+              </span>
+            ))}
+          </div>
 
-        <p className="text-sm text-verde-dark font-semibold font-body mb-6">
-          ¡Ahorras $30.00! 🔥
-        </p>
+          {/* Price */}
+          <div className="mb-2">
+            <span className="text-2xl text-muted-foreground line-through font-body">$59.99 USD</span>
+          </div>
 
-        <motion.div
-          animate={{ scale: [1, 1.03, 1] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        >
-          <CTAButton text="👉 QUIERO ACCESO AHORA" microcopy="Pago seguro + acceso inmediato" />
-        </motion.div>
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.3 }}
+            className="mb-1"
+          >
+            <span className="text-7xl font-bold font-heading bg-gradient-to-r from-gold via-[hsl(43,76%,55%)] to-gold bg-clip-text text-transparent">
+              $29.99
+            </span>
+            <span className="text-2xl font-bold text-gold font-heading ml-1">USD</span>
+          </motion.div>
 
-        <div className="flex items-center justify-center gap-4 mt-6 text-xs text-muted-foreground font-body">
-          <span className="flex items-center gap-1"><Shield className="w-3 h-3" /> Pago 100% seguro</span>
-          <span className="flex items-center gap-1"><Check className="w-3 h-3" /> Garantía 7 días</span>
+          <motion.p
+            className="text-verde-dark font-bold font-body mb-8 text-lg"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          >
+            ¡Ahorras $30.00! 🔥
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div
+            animate={{ scale: [1, 1.04, 1] }}
+            transition={{ repeat: Infinity, duration: 2.5 }}
+          >
+            <CTAButton text="👉 QUIERO ACCESO AHORA" microcopy="Pago seguro + acceso inmediato" />
+          </motion.div>
+
+          {/* Trust signals */}
+          <div className="flex items-center justify-center gap-5 mt-6 text-xs text-muted-foreground font-body">
+            <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-verde-dark" /> Pago 100% seguro</span>
+            <span className="flex items-center gap-1"><Check className="w-4 h-4 text-verde-dark" /> Garantía 7 días</span>
+          </div>
+
+          {/* Urgency */}
+          <p className="mt-4 text-xs text-rosa-dark font-semibold font-body animate-pulse">
+            ⏰ Este precio puede subir en cualquier momento
+          </p>
         </div>
       </motion.div>
     </div>
@@ -398,11 +448,18 @@ const FAQ = () => (
 /* ─── 14. CTA FINAL ─── */
 const CTAFinal = () => (
   <section className="section-padding bg-gold/10">
-    <div className="container-narrow text-center">
-      <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="section-headline">
-        Tu primer bolso puede ser el inicio de algo más grande
-      </motion.h2>
-      <CTAButton text="👉 EMPEZAR AHORA" microcopy="Acceso inmediato + garantía incluida" />
+    <div className="container-narrow">
+      <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="md:w-1/2 text-center md:text-left">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="section-headline">
+            Tu primer bolso puede ser el inicio de algo más grande
+          </motion.h2>
+          <CTAButton text="👉 EMPEZAR AHORA" microcopy="Acceso inmediato + garantía incluida" />
+        </div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="md:w-1/2 flex-shrink-0">
+          <img src={ctaFinalImg} alt="Modelo con bolso de cuentas colorido" loading="lazy" width={800} height={1000} className="rounded-2xl shadow-lg w-full max-w-sm mx-auto" />
+        </motion.div>
+      </div>
     </div>
   </section>
 );
