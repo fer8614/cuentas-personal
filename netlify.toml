@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules && npm install && npm run build"
+  command = "echo '--- FILES IN SRC ---' && ls -la src/ && echo '--- INDEX.HTML ---' && cat index.html && echo '--- NODE VERSION ---' && node -v && rm -rf node_modules && npm install && npm run build"
   publish = "dist"
 
 [build.environment]
